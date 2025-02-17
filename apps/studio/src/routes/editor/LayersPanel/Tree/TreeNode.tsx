@@ -358,9 +358,19 @@ const TreeNode = observer(
                             side="right"
                             align="center"
                             sideOffset={sideOffset()}
-                            className="animation-none max-w-[200px] shadow"
+                            className="max-w-[200px] shadow duration-0 transform-none transition-none
+                                           data-[state=delayed-open]:duration-0
+                                           data-[state=instant-open]:duration-0
+                                           data-[state=closed]:duration-0
+                                           data-[state=closed]:transition-none
+                                           data-[state=closed]:transform-none"
                         >
-                            <TooltipArrow className="fill-foreground" />
+                            <TooltipArrow
+                                className="fill-foreground duration-0 transform-none transition-none
+                                               data-[state=closed]:duration-0
+                                               data-[state=closed]:transition-none
+                                               data-[state=closed]:transform-none"
+                            />
                             <p>{node.data.textContent}</p>
                         </TooltipContent>
                     </TooltipPortal>
